@@ -32,6 +32,10 @@
  * There will be at least one word in s.
  */
 public class LengthOfLastWord {
+    public int lengthOfLastWord2(String s) {
+        String[] words = s.trim().split("\\s+");
+        return words[words.length - 1].length();
+    }
     public int lengthOfLastWord(String s) {
         int length = 0;
         int i = s.length() - 1;
@@ -50,8 +54,8 @@ public class LengthOfLastWord {
 
     public static void main(String[] args) {
         LengthOfLastWord l = new LengthOfLastWord();
-        System.out.println(l.lengthOfLastWord("Hello World"));
-        System.out.println(l.lengthOfLastWord("   fly me   to   the moon  "));
-        System.out.println(l.lengthOfLastWord(" luffy is still joyboy"));
+        System.out.println(l.lengthOfLastWord2("Hello World"));
+        System.out.println(l.lengthOfLastWord2("   fly me   to   the moon  "));
+        System.out.println(l.lengthOfLastWord2(" luffy is still joyboy"));
     }
 }
