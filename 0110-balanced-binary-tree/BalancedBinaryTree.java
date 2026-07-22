@@ -37,7 +37,26 @@
  */
 public class BalancedBinaryTree {
     public boolean isBalanced(TreeNode root) {
-        return check(root)[0]==1;
+//        return check(root)[0]==1;
+        return heightDiff(root) != -1;
+    }
+
+    public int heightDiff(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int hleft = heightDiff(root.left);
+        if (hleft == -1)
+            return -1;
+        int hright = heightDiff(root.right);
+        if (hright == -1)
+            return -1;
+
+        if (Math.abs(hleft - hright) > 1) {
+            return -1;
+        }
+        return 1 + Math.max(hleft, hright);
     }
     private int[] check(TreeNode node) {
         // 空节点：平衡且高度为0
